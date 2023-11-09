@@ -29,6 +29,7 @@ public:
 
 void RPS::start_game() {
     int random_int = std::rand() % 3;
+    std::cout << "Choose Rock, Paper or Scissor (r/p/s):";
     std::cin >> user_input;
 
     switch (user_input) {
