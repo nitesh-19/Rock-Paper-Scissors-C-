@@ -15,10 +15,12 @@ using std::string;
 
 class RPS {
 private:
-    short array[9] = {-1, 0, 1, 1, -1, 0, 0, 1, -1}; //Decision Matrix 3x3
+    short array[9] = {2, 0, 1, 1, 2, 0, 0, 1, 2}; //Decision Matrix 3x3
     string tools[4] = {"Rock", "Paper", "Scissors"};
+    string possible_results[4] = {"You Lose", "You Win!", "It's a Draw"};
     char user_input;
     short index_row_modifier;
+    int user_choice_int;
 
 
 public:
@@ -32,17 +34,21 @@ void RPS::start_game() {
     switch (user_input) {
         case 'r' :
             index_row_modifier = 0;
+            user_choice_int = 0;
             break;
         case 'p' :
             index_row_modifier = 3;
+            user_choice_int = 1;
             break;
         case 's' :
             index_row_modifier = 6;
+            user_choice_int = 2;
             break;
     }
     int result = array[index_row_modifier + random_int];
-    std::cout << "Computer Choice " << random_int << "\n";
-    std::cout << "Result " << result << "\n";
+    std::cout << "Your Choice: " << tools[user_choice_int] << "\n";
+    std::cout << "Computer Chooses: " << tools[random_int] << "\n";
+    std::cout << possible_results[result] << "\n";
 
 
 }
