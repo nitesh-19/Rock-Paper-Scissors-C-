@@ -20,38 +20,36 @@ private:
     short decision_matrix[9] = {2, 0, 1, 1, 2, 0, 0, 1, 2}; //Decision Matrix 3x3
     string move_options[4] = {"Rock", "Paper", "Scissors"};
     string possible_results[4] = {"You Lose", "You Win!", "It's a Draw"};
-    char user_input{};
-    short index_row_modifier{};
-    int user_choice_int{};
-
+    char user_input_{};
+    short index_row_modifier_{};
+    int user_choice_int_{};
 
 public:
     RPS();
-
     void start_game();
 };
 
 void RPS::start_game() {
     int random_int = std::rand() % 3;
     std::cout << "Choose Rock, Paper or Scissor (r/p/s):";
-    std::cin >> user_input;
+    std::cin >> user_input_;
 
-    switch (user_input) {
+    switch (user_input_) {
         case 'r' :
-            index_row_modifier = 0;
-            user_choice_int = 0;
+            index_row_modifier_ = 0;
+            user_choice_int_ = 0;
             break;
         case 'p' :
-            index_row_modifier = 3;
-            user_choice_int = 1;
+            index_row_modifier_ = 3;
+            user_choice_int_ = 1;
             break;
         case 's' :
-            index_row_modifier = 6;
-            user_choice_int = 2;
+            index_row_modifier_ = 6;
+            user_choice_int_ = 2;
             break;
     }
-    int result = decision_matrix[index_row_modifier + random_int];
-    std::cout << "Your Choice: " << move_options[user_choice_int] << "\n";
+    int result = decision_matrix[index_row_modifier_ + random_int];
+    std::cout << "Your Choice: " << move_options[user_choice_int_] << "\n";
     std::cout << "Computer Chooses: " << move_options[random_int] << "\n";
     std::cout << possible_results[result] << "\n";
 
