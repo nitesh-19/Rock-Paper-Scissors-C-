@@ -20,12 +20,14 @@ private:
     short decision_matrix[9] = {2, 0, 1, 1, 2, 0, 0, 1, 2}; //Decision Matrix 3x3
     string move_options[4] = {"Rock", "Paper", "Scissors"};
     string possible_results[4] = {"You Lose", "You Win!", "It's a Draw"};
-    char user_input;
-    short index_row_modifier;
-    int user_choice_int;
+    char user_input{};
+    short index_row_modifier{};
+    int user_choice_int{};
 
 
 public:
+    RPS();
+
     void start_game();
 };
 
@@ -54,4 +56,8 @@ void RPS::start_game() {
     std::cout << possible_results[result] << "\n";
 
 
+}
+
+RPS::RPS() {
+    std::cout << "****** ROCK PAPER SCISSORS ******" << std::endl;
 }
