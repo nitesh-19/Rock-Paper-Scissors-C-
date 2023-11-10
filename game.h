@@ -2,6 +2,8 @@
 // Created by Nitesh on 09-11-2023.
 //
 
+//TODO: Add score keeping and loop game.
+
 #ifndef ROCK_PAPER_SCISSORS_GAME_H
 #define ROCK_PAPER_SCISSORS_GAME_H
 
