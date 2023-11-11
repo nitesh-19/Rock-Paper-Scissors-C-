@@ -77,7 +77,7 @@ void RPS::play_game() {
             std::cout << "YOU WON THE GAME!" << std::endl;
         } else
             std::cout << "YOU LOST THE GAME!" << std::endl;
-    }
+    } else std::cout << "You abandoned the game!" << std::endl;
 
 
 }
