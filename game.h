@@ -9,11 +9,9 @@
 
 #endif //ROCK_PAPER_SCISSORS_GAME_H
 
-#include <cstdlib>
 #include <string>
 #include <iostream>
 #include <random>
-#include <chrono>
 
 using std::string;
 
