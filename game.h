@@ -56,6 +56,9 @@ void RPS::play_game() {
                 quit = true;
                 break;
         }
+        if (user_input_ == 'q'){
+            break;
+        }
         int result = decision_matrix[index_row_modifier_ + random_int];
         std::cout << "Your Choice: " << move_options[user_choice_int_] << "\n";
         std::cout << "Computer Chooses: " << move_options[random_int] << "\n";
