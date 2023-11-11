@@ -72,7 +72,11 @@ void RPS::play_game() {
                 count++;
             }
         }
-        if count
+        std::cout << "Your total score is " << count << "/3" << std::endl;
+        if (count >= 2) {
+            std::cout << "YOU WON THE GAME!" << std::endl;
+        } else
+            std::cout << "YOU LOST THE GAME!" << std::endl;
     }
 
 
