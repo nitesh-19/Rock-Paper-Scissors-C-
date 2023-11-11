@@ -26,32 +26,54 @@ private:
 
 public:
     RPS();
-    void start_game();
+
+    void play_game();
 };
 
-void RPS::start_game() {
-    int random_int = std::rand() % 3;
-    std::cout << "Choose Rock, Paper or Scissor (r/p/s):";
-    std::cin >> user_input_;
+void RPS::play_game() {
+    int i = 0;
+    bool quit = false;
+    int result_history[3] = {-1, -1, -1};
+    while (i < 3 and !quit) {
+        int random_int = std::rand() % 3;
+        std::cout << "Choose Rock, Paper or Scissor (r/p/s):";
+        std::cin >> user_input_;
 
-    switch (user_input_) {
-        case 'r' :
-            index_row_modifier_ = 0;
-            user_choice_int_ = 0;
-            break;
-        case 'p' :
-            index_row_modifier_ = 3;
-            user_choice_int_ = 1;
-            break;
-        case 's' :
-            index_row_modifier_ = 6;
-            user_choice_int_ = 2;
-            break;
+        switch (user_input_) {
+            case 'r' :
+                index_row_modifier_ = 0;
+                user_choice_int_ = 0;
+                break;
+            case 'p' :
+                index_row_modifier_ = 3;
+                user_choice_int_ = 1;
+                break;
+            case 's' :
+                index_row_modifier_ = 6;
+                user_choice_int_ = 2;
+                break;
+            case 'q':
+                quit = true;
+                break;
+        }
+        int result = decision_matrix[index_row_modifier_ + random_int];
+        std::cout << "Your Choice: " << move_options[user_choice_int_] << "\n";
+        std::cout << "Computer Chooses: " << move_options[random_int] << "\n";
+        std::cout << possible_results[result] << "\n";
+        result_history[i] = result;
+        i += 1;
+
     }
-    int result = decision_matrix[index_row_modifier_ + random_int];
-    std::cout << "Your Choice: " << move_options[user_choice_int_] << "\n";
-    std::cout << "Computer Chooses: " << move_options[random_int] << "\n";
-    std::cout << possible_results[result] << "\n";
+
+    if (result_history[2] != -1) {
+        int count = 0;
+        for (int k: result_history) {
+            if (k == 1) {
+                count++;
+            }
+        }
+        if count
+    }
 
 
 }
@@ -59,3 +81,5 @@ void RPS::start_game() {
 RPS::RPS() {
     std::cout << "****** ROCK PAPER SCISSORS ******" << std::endl;
 }
+
+
