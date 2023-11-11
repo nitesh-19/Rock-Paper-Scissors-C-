@@ -12,6 +12,8 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include <random>
+#include <chrono>
 
 using std::string;
 
@@ -19,7 +21,7 @@ class RPS {
 private:
     short decision_matrix[9] = {2, 0, 1, 1, 2, 0, 0, 1, 2}; //Decision Matrix 3x3
     string move_options[4] = {"Rock", "Paper", "Scissors"};
-    string possible_results[4] = {"---You lost the round---", "---You won the round!---", "---It's a Draw---"};
+    string possible_results[4] = {"---You lost the round---\n", "---You won the round!---\n", "---It's a Draw---\n"};
     char user_input_{};
     short index_row_modifier_{};
     int user_choice_int_{};
@@ -34,8 +36,13 @@ void RPS::play_game() {
     int i = 0;
     bool quit = false;
     int result_history[3] = {-1, -1, -1};
+    std::random_device rand;
+    std::mt19937 gen(rand());
+    std::uniform_int_distribution<> dis(0, 2);
     while (i < 3 and !quit) {
-        int random_int = std::rand() % 3;
+        int random_number = dis(gen);
+        int random_int = random_number;
+
         std::cout << "Choose Rock, Paper or Scissor (r/p/s):";
         std::cin >> user_input_;
 
@@ -83,13 +90,13 @@ void RPS::play_game() {
             std::cout << "YOU WON THE GAME!" << std::endl;
         } else
             std::cout << "YOU LOST THE GAME!" << std::endl;
-    } else std::cout << "You abandoned the game!" << std::endl;
+    } else std::cout << "\nYou abandoned the game!" << std::endl;
 
 
 }
 
 RPS::RPS() {
-    std::cout << "****** ROCK PAPER SCISSORS ******" << std::endl;
+    std::cout << "****** ROCK PAPER SCISSORS ****** \n" << std::endl;
 }
 
 
